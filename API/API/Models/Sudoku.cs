@@ -11,5 +11,7 @@ namespace API.Models
         [Key]
         public int Id { get; set; }
         public string Board { get; set; }
+
+        public string SolvedBoard { get; set; }
     }
 }

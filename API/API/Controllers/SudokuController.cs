@@ -227,17 +227,15 @@ namespace API.Controllers
             solve(board);
             printBoard(board);
 
-            string strBoard = "";
+
 
             for(var i=0; i<9; i++)
             {
                 for(var j=0; j<9; j++)
                 {
-                    strBoard += board[i][j];
+                    sudoku.SolvedBoard += board[i][j];
                 }
             }
-
-            sudoku.Board = strBoard;
 
             ////////////////////////////////////////////
 
