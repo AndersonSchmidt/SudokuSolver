@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { SudokuService } from '../sudoku.service';
-import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-sudoku-form',
-  templateUrl: './sudoku-form.component.html',
-  styleUrls: ['./sudoku-form.component.css']
+  selector: 'app-sudoku-add',
+  templateUrl: './sudoku-add.component.html',
+  styleUrls: ['./sudoku-add.component.css']
 })
-export class SudokuFormComponent implements OnInit {
+export class SudokuAddComponent implements OnInit {
 
-  values: number[] = [];
+  values: string[] = [];
   sudokuObj = {
     board: ''
   };
@@ -31,7 +30,7 @@ export class SudokuFormComponent implements OnInit {
 
     this.service.postSudoku(this.sudokuObj).subscribe(
       res => {
-        console.log('Success');
+        console.log(res);
       },
       err => {
         console.log(err);

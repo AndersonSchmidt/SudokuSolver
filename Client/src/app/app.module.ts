@@ -4,14 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { SudokuFormComponent } from './sudoku-form/sudoku-form.component';
+import { SudokuAddComponent } from './sudoku-add/sudoku-add.component';
 import { SudokuService } from './sudoku.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SudokuFormComponent,
+    SudokuAddComponent,
     SidebarComponent,
   ],
   imports: [
