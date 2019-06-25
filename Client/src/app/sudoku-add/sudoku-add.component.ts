@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SudokuService } from '../sudoku.service';
+import { Sudoku } from '../models/sudoku.model';
 
 @Component({
   selector: 'app-sudoku-add',
@@ -8,10 +9,9 @@ import { SudokuService } from '../sudoku.service';
 })
 export class SudokuAddComponent implements OnInit {
 
-  values: string[] = [];
-  sudokuObj = {
-    board: ''
-  };
+  boardValues: string[] = [];
+
+  sudoku: Sudoku = new Sudoku();
 
   constructor(private service: SudokuService) { }
 
@@ -19,24 +19,19 @@ export class SudokuAddComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('submiting');
+
     for (let i = 0; i < 81; i++) {
-      if (!this.values[i]) {
-        this.sudokuObj.board += '0';
-      } else {
-        this.sudokuObj.board += this.values[i];
-      }
+        this.sudoku.board += !this.boardValues[i] ? '0' : this.boardValues[i];
     }
 
-    this.service.postSudoku(this.sudokuObj).subscribe(
-      res => {
-        console.log(res);
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    console.log(this.sudoku);
 
+    this.service.addSudoku(this.sudoku).subscribe(res => this.refreshBoard(res));
+
+  }
+
+  refreshBoard(sudoku: Sudoku) {
+    this.boardValues = sudoku.solvedBoard.split('');
   }
 
 }

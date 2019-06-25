@@ -1,5 +1,5 @@
-export class SudokuModel {
-  Id: number;
-  Board: string;
-  SolvedBoard: string;
+export class Sudoku {
+  id: number;
+  board = '';
+  solvedBoard = '';
 }
