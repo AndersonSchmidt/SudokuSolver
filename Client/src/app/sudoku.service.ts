@@ -18,10 +18,6 @@ export class SudokuService {
 
   constructor(private http: HttpClient) { }
 
-  postSudoku(sudoku) {
-    return this.http.post('http://localhost:56541/api/Sudoku', sudoku);
-  }
-
   addSudoku (sudoku: Sudoku): Observable<Sudoku> {
     return this.http.post<Sudoku>('http://localhost:56541/api/Sudoku', sudoku, httpOptions);
   }
