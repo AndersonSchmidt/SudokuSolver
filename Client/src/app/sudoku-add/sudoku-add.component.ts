@@ -10,8 +10,7 @@ import { Sudoku } from '../models/sudoku.model';
 export class SudokuAddComponent implements OnInit {
 
   boardValues: string[] = [];
-
-  sudoku: Sudoku = new Sudoku();
+  sudoku: Sudoku;
 
   constructor(private service: SudokuService) { }
 
@@ -19,19 +18,21 @@ export class SudokuAddComponent implements OnInit {
   }
 
   onSubmit() {
+    this.sudoku = new Sudoku();
 
     for (let i = 0; i < 81; i++) {
         this.sudoku.board += !this.boardValues[i] ? '0' : this.boardValues[i];
     }
 
-    console.log(this.sudoku);
-
     this.service.addSudoku(this.sudoku).subscribe(res => this.refreshBoard(res));
-
   }
 
   refreshBoard(sudoku: Sudoku) {
     this.boardValues = sudoku.solvedBoard.split('');
+  }
+
+  clearBoard() {
+    this.boardValues = [];
   }
 
 }
