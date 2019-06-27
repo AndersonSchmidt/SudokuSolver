@@ -9,7 +9,7 @@ import { Sudoku } from '../models/sudoku.model';
 })
 export class SudokuAddComponent implements OnInit {
 
-  boardValues: string[] = [];
+  board: string[] = []; // Array of board values
   sudoku: Sudoku;
 
   constructor(private service: SudokuService) { }
@@ -21,18 +21,18 @@ export class SudokuAddComponent implements OnInit {
     this.sudoku = new Sudoku();
 
     for (let i = 0; i < 81; i++) {
-        this.sudoku.board += !this.boardValues[i] ? '0' : this.boardValues[i];
+        this.sudoku.board += !this.board[i] ? '0' : this.board[i];
     }
 
     this.service.addSudoku(this.sudoku).subscribe(res => this.refreshBoard(res));
   }
 
   refreshBoard(sudoku: Sudoku) {
-    this.boardValues = sudoku.solvedBoard.split('');
+    this.board = sudoku.solvedBoard.split('');
   }
 
   clearBoard() {
-    this.boardValues = [];
+    this.board = [];
   }
 
 }
