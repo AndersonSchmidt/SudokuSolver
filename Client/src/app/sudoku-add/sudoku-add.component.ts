@@ -15,6 +15,7 @@ export class SudokuAddComponent implements OnInit {
   constructor(private service: SudokuService) { }
 
   ngOnInit() {
+    this.sudoku = new Sudoku();
   }
 
   onSubmit() {
@@ -28,11 +29,13 @@ export class SudokuAddComponent implements OnInit {
   }
 
   refreshBoard(sudoku: Sudoku) {
+    this.sudoku = sudoku;
     this.board = sudoku.solvedBoard.split('');
   }
 
   clearBoard() {
     this.board = [];
+    this.sudoku = new Sudoku;
   }
 
 }

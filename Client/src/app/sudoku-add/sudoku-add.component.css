@@ -23,3 +23,7 @@
 .vertBorder {
   border-right: 2px solid  white;
 }
+
+.selectedItem {
+  background-color: #7386D5;
+}
