@@ -33,7 +33,7 @@ export class SudokuAddComponent implements OnInit {
     this.board = sudoku.solvedBoard.split('');
   }
 
-  clearBoard() {
+  onClearBoard() {
     this.board = [];
     this.sudoku = new Sudoku;
   }
