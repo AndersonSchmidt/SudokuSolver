@@ -19,8 +19,6 @@ export class SudokuAddComponent implements OnInit {
   }
 
   onSubmit() {
-    this.sudoku = new Sudoku();
-
     for (let i = 0; i < 81; i++) {
         this.sudoku.board += !this.board[i] ? '0' : this.board[i];
     }
