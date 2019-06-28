@@ -16,12 +16,12 @@
   outline: none
 } */
 
-.horiBorder {
-  border-bottom: 2px solid  white;
+.horiMargin {
+  margin-bottom: 2px;
 }
 
-.vertBorder {
-  border-right: 2px solid  white;
+.vertMargin {
+  margin-right: 2px;
 }
 
 .selectedItem {

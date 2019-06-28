@@ -36,4 +36,13 @@ export class SudokuAddComponent implements OnInit {
     this.sudoku = new Sudoku;
   }
 
+  boardCellClasses(i: number) {
+    return {
+      'selectedItem': this.sudoku.board.length && this.sudoku.board[i] === this.sudoku.solvedBoard[i],
+      'horiMargin': [18, 45].includes(i),
+      'vertMargin': [2, 5].includes(i),
+      'grid-item': true
+    };
+  }
+
 }
