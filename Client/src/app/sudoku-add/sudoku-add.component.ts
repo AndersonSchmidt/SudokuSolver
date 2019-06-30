@@ -11,7 +11,7 @@ export class SudokuAddComponent implements OnInit {
 
   board: string[] = []; // Array of board values
   sudoku: Sudoku;
-  array = Array(81); // Just an empty array to be used at the ngFor
+  array = Array(81);    // Just an empty array to be used by the ngFor
 
   constructor(private service: SudokuService) { }
 

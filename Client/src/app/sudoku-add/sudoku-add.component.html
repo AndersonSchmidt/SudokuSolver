@@ -1,19 +1,22 @@
 <div class="row" style="width: 100%">
 
-
     <div class="col-md-4 text-center" >
-
       <app-sidebar></app-sidebar>
-
     </div>
-
 
     <div class="col-md-6">
         <form (submit)="onSubmit()" id="ngForm">
             <div class="grid-container" style="margin-top: 40px">
 
-              <div *ngFor="let i = index of array;" >
-                <input type="text" oninput="this.value = this.value.replace(/[^1-9]/g, '').replace(/(\..*)\./g, '$1');" name="position{{i}}" maxlength="1" [(ngModel)]="board[i]" [ngClass]="boardCellClasses(i)">
+              <div *ngFor="let i = index of array" >
+                <input
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '').replace(/(\..*)\./g, '$1');"
+                  name="position{{i}}"
+                  maxlength="1"
+                  [(ngModel)]="board[i]"
+                  [ngClass]="boardCellClasses(i)"
+                >
               </div>
 
             </div>
@@ -21,7 +24,14 @@
     </div>
 
     <div class="col-md-2 text-left">
-      <input type="submit" value="Solve" [disabled]="sudoku.solvedBoard" class="btn btn-block btn-primary btn-lg" form="ngForm" style="margin-top: 12em">
+      <input
+        type="submit"
+        value="Solve"
+        [disabled]="sudoku.solvedBoard"
+        class="btn btn-block btn-primary btn-lg"
+        form="ngForm"
+        style="margin-top: 12em"
+      >
       <button class="btn btn-warning btn-block btn-lg" (click)="onClearBoard()">Clear</button>
     </div>
 
