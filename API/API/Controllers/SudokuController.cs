@@ -122,7 +122,7 @@ namespace API.Controllers
 
                 for (var i = 1; i <= 9; i++)
                 {
-                    if (valid(bo, i, row, col))
+                    if (valid(bo, i.ToString(), row, col))
                     {
                         bo[row][col] = i.ToString();
 
@@ -139,12 +139,12 @@ namespace API.Controllers
             }
 
 
-            bool valid(string[][]bo, int num, int roww, int coll)
+            bool valid(string[][]bo, string num, int roww, int coll)
             {
                 // Check row
                 for (var i = 0; i < bo[0].Length; i++)
                 {
-                    if (bo[roww][i] == num.ToString())
+                    if (bo[roww][i] == num)
                     {
                         return false;
                     }
@@ -153,7 +153,7 @@ namespace API.Controllers
                 // Check column
                 for (var i = 0; i < bo.Length; i++)
                 {
-                    if (bo[i][coll] == num.ToString())
+                    if (bo[i][coll] == num)
                     {
                         return false;
                     }
@@ -168,7 +168,7 @@ namespace API.Controllers
                 {
                     for (var j = boxX * 3; j < (boxX * 3 + 3); j++)
                     {
-                        if (bo[i][j] == num.ToString())
+                        if (bo[i][j] == num)
                         {
                             return false;
                         }
