@@ -144,7 +144,7 @@ namespace API.Controllers
                 // Check row
                 for (var i = 0; i < bo[0].Length; i++)
                 {
-                    if (bo[roww][i] == num)
+                    if (bo[roww][i] == num && i != coll)
                     {
                         return false;
                     }
@@ -153,7 +153,7 @@ namespace API.Controllers
                 // Check column
                 for (var i = 0; i < bo.Length; i++)
                 {
-                    if (bo[i][coll] == num)
+                    if (bo[i][coll] == num && i != roww)
                     {
                         return false;
                     }
@@ -168,7 +168,7 @@ namespace API.Controllers
                 {
                     for (var j = boxX * 3; j < (boxX * 3 + 3); j++)
                     {
-                        if (bo[i][j] == num)
+                        if (bo[i][j] == num && i != roww && j != coll)
                         {
                             return false;
                         }
