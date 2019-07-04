@@ -248,20 +248,18 @@ namespace API.Controllers
                 Console.WriteLine("_______________________");
                 solve(board);
                 printBoard(board);
+
+                for (var i = 0; i < 9; i++)
+                {
+                    for (var j = 0; j < 9; j++)
+                    {
+                        sudoku.SolvedBoard += board[i][j];
+                    }
+                }
             }
             else
             {
                 Console.WriteLine("Invalid Board");
-            }
-
-
-
-            for (var i=0; i<9; i++)
-            {
-                for(var j=0; j<9; j++)
-                {
-                    sudoku.SolvedBoard += board[i][j];
-                }
             }
 
             ////////////////////////////////////////////
