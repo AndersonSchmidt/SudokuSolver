@@ -28,8 +28,13 @@ export class SudokuAddComponent implements OnInit {
   }
 
   refreshBoard(sudoku: Sudoku) {
-    this.sudoku = sudoku;
-    this.board = sudoku.solvedBoard.split('');
+    if (!sudoku.solvedBoard) {
+      confirm('Invalid Board');
+      this.sudoku = new Sudoku;
+    } else {
+      this.sudoku = sudoku;
+      this.board = sudoku.solvedBoard.split('');
+    }
   }
 
   onClearBoard() {
