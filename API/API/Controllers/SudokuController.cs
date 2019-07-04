@@ -144,7 +144,7 @@ namespace API.Controllers
                 // Check row
                 for (var i = 0; i < bo[0].Length; i++)
                 {
-                    if (bo[roww][i] == num && i != coll)
+                    if (bo[roww][i] == num && i != coll) //Checking if (i != coll) is necessery just because of the checkBoard function
                     {
                         return false;
                     }
@@ -153,7 +153,7 @@ namespace API.Controllers
                 // Check column
                 for (var i = 0; i < bo.Length; i++)
                 {
-                    if (bo[i][coll] == num && i != roww)
+                    if (bo[i][coll] == num && i != roww) //Checking if (i != roww) is necessery just because of the checkBoard function
                     {
                         return false;
                     }
@@ -168,7 +168,7 @@ namespace API.Controllers
                 {
                     for (var j = boxX * 3; j < (boxX * 3 + 3); j++)
                     {
-                        if (bo[i][j] == num && i != roww && j != coll)
+                        if (bo[i][j] == num && i != roww && j != coll) //Checking if (i != roww && j != coll) is necessery just because of the checkBoard function
                         {
                             return false;
                         }
@@ -222,14 +222,41 @@ namespace API.Controllers
                 return new int[0];
             }
 
-            printBoard(board);
-            Console.WriteLine("_______________________");
-            solve(board);
-            printBoard(board);
+            bool checkBoard(string[][] bo)
+            {
+                var isValid = true;
+                for (var i = 0; i < bo[0].Length; i++)
+                {
+                    for (var j = 0; j < bo.Length; j++)
+                    {
+                        if (bo[i][j] != "0")
+                        {
+                            if (!valid(bo, bo[i][j], i, j))
+                            {
+                                isValid = false;
+                            }
+                        }
+                    }
+                }
+
+                return isValid;
+            }
+
+            if (checkBoard(board))
+            {
+                printBoard(board);
+                Console.WriteLine("_______________________");
+                solve(board);
+                printBoard(board);
+            }
+            else
+            {
+                Console.WriteLine("Invalid Board");
+            }
 
 
 
-            for(var i=0; i<9; i++)
+            for (var i=0; i<9; i++)
             {
                 for(var j=0; j<9; j++)
                 {
