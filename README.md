@@ -1,2 +1,2 @@
 # SudokuSolver
-Sudoku solver with Backtracking. This project uses the following technologies: Angular 6, .NET Core 2.1, Entity Framework Core and MS SQL Server.
+<img src="https://lh3.googleusercontent.com/5PvUXOA33G2C2uY01clA6nkTE_9YVOlcOSSR9hVT82Dv49ULg6SIGYVWrHOs4IqK9n5XHL8LXORa_cplhN9Kjp9pIDuf9rkxXqnGL4HFJhvhfdDCM4EHSmzQbki4Zq4gmofh6PwYGg=w1357-h621-no"></img>
